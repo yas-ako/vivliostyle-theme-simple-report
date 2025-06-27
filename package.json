@@ -1,0 +1,46 @@
+{
+  "name": "vivliostyle-theme-simple-report",
+  "description": "",
+  "version": "0.1.0",
+  "author": "https://github.com/yas-ako/",
+  "main": "theme.css",
+  "scripts": {
+    "build": "vivliostyle build",
+    "preview": "vivliostyle preview",
+    "validate": "vivliostyle-theme-scripts validate"
+  },
+  "dependencies": {
+    "@vivliostyle/theme-base": "latest"
+  },
+  "devDependencies": {
+    "@vivliostyle/cli": "^9.3.1",
+    "vivliostyle-theme-scripts": "^0.3.6"
+  },
+  "peerDependencies": {
+    "@vivliostyle/cli": ">=7"
+  },
+  "peerDependenciesMeta": {
+    "@vivliostyle/cli": {
+      "optional": true
+    }
+  },
+  "files": [
+    "*.css",
+    "example",
+    "vivliostyle.config.js"
+  ],
+  "keywords": [
+    "vivliostyle",
+    "vivliostyle-theme"
+  ],
+  "license": "MIT",
+  "vivliostyle": {
+    "theme": {
+      "name": "Vivliostyle Theme Simple Report",
+      "author": "https://github.com/yas-ako/",
+      "style": "theme.css",
+      "category": "report",
+      "topics": []
+    }
+  }
+}
