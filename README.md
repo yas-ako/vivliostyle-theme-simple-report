@@ -11,7 +11,7 @@ In `vivliostyle.config.js`:
 
 ```js
 module.exports = {
-  theme: 'vivliostyle-theme-simple-report',
+  theme: '@yas-ako/vivliostyle-theme-simple-report',
 };
 ```
 
@@ -20,7 +20,7 @@ If you want to add your CSS:
 ```js
 module.exports = {
   theme: [
-    'vivliostyle-theme-simple-report',
+    '@yas-ako/vivliostyle-theme-simple-report',
     // add your CSS 
   ],
 };
@@ -31,7 +31,7 @@ module.exports = {
 ### Files
 
 ```
-vivliostyle-theme-simple-report
+@yas-ako/vivliostyle-theme-simple-report
 ├── LICENSE
 ├── README.md
 ├── example
