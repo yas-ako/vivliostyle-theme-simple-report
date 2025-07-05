@@ -1,7 +1,6 @@
 # Vivliostyle Theme Simple Report
 
-[![npm: version](https://flat.badgen.net/npm/v/@yas-ako%2Fvivliostyle-theme-simple-report)](https://npmjs.com/package/vivliostyle-theme-simple-report)
-[![npm: total downloads](https://flat.badgen.net/npm/dt/@yas-ako%2Fvivliostyle-theme-simple-report)](https://npmjs.com/package/vivliostyle-theme-simple-report)
+[![npm](https://flat.badgen.net/npm/v/@yas-ako%2Fvivliostyle-theme-simple-report)](npm-url)
 ![npm: license](https://flat.badgen.net/npm/license/@yas-ako%2Fvivliostyle-theme-simple-report)
 
 
