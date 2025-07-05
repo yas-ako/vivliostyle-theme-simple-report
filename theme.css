@@ -1,13 +1,12 @@
-/* @import url('ress.min.css'); */
-
 @import url(../@vivliostyle/theme-base/theme-all.css);
 
 /*
- * Import extra modules
- * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#prism-code-highlighting
- */
+* Import extra modules
+* https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#prism-code-highlighting
+*/
 @import url(../@vivliostyle/theme-base/css/lib/prism/base.css);
-@import url(../@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
+@import url(../@vivliostyle/theme-base/css/lib/prism/theme-prism.css);
+@import 'prism-customize.css';
 
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700');
