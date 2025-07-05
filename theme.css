@@ -93,9 +93,7 @@
     ========================================*/
 
   --vs-section--root-counter-reset: vs-counter-sections var(--vs-section--root-counter-sections, ) vs-counter-sec-h1 var(--vs-section--root-counter-sec-h1, );
-}
 
-:root {
   --vs-font-size: 10pt;
   --vs-line-height: 1.8;
   --vs-text-align: justify;

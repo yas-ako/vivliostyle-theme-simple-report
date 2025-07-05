@@ -1,5 +1,5 @@
 ---
-title: 'Vivliostyle Theme Exampleaaa'
+title: 'Vivliostyle Theme Example'
 body:
   class: 'chapter1'
 vfm:
