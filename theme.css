@@ -313,19 +313,18 @@ section:has(> .cover:first-child) .author ul {
     font-weight: bold;
   }
 
-  /* 
-   * CSS変数の値を設定
-   * 別のCSSファイルで上書き可能
-   */
+  /*----------------------------------------
+    CSS変数の値を設定
+    別のCSSファイルで上書き可能
+    ----------------------------------------*/
 
   /* margin */
   --vs-theme--box-margin-block: var(--vs-spacing-rlh);
 }
 
 
-/*
- * 見出しに付与されるカウンタのスタイル
- */
+/* 見出しに付与されるカウンタのスタイル */
+
 .box>:first-child:has(strong)::before {
   font-family: var(--vs-theme--box-heading-font-family, var(--vs--bold-font-family, var(--vs--heading-font-family)));
   font-feature-settings: var(--vs-theme--box-heading-font-feature-settings, var(--vs--bold-font-feature-settings, var(--vs--heading-font-feature-settings)));
@@ -338,13 +337,11 @@ section:has(> .cover:first-child) .author ul {
   vertical-align: var(--vs--bold-vertical-align);
 }
 
-
-
-/*
- * example スタイルの定義
- */
+/*----------------------------------------
+  example スタイルの定義
+  ----------------------------------------*/
 .box[data-box-type="example"] {
-  counter-increment: box-example;
+  counter-increment: vs-theme-counter-box-example;
 }
 
 /* 見出しが枠線の上に乗るように位置を調整 */
@@ -354,45 +351,39 @@ section:has(> .cover:first-child) .author ul {
   left: 1em;
   padding: 0em 0.7em;
   background-color: #fff;
-  display: flex;
-
-
-  strong {
-    justify-content: center;
-  }
-
 }
 
 /* example スタイルの見出しの設定 */
 .box[data-box-type="example"]>:first-child:has(strong)::before {
-  content: var(--vs-theme--box-example-counter-content, "Ex " counter(vs-counter-sec-h2) "." counter(box-example) " ");
+  content: var(--vs-theme--box-example-counter-content, "Ex " counter(vs-counter-sec-h2) "." counter(vs-theme-counter-box-example) " ");
 
-  /* 「Ex 1.1」の部分と実際の見出しの隙間 */
+  /* 「Ex 1.1」の部分と実際の見出しの間隔 */
   padding-right: var(--vs-theme--box-example-heading-padding-right, 0.5em);
 }
 
-/*
- * theorem スタイルの定義
- */
+/*----------------------------------------
+  theorem スタイルの定義
+  ----------------------------------------*/
 .box[data-box-type="theorem"] {
   --vs-theme--box-border-left: none;
   --vs-theme--box-border-top: none;
   --vs-theme--box-border-right: none;
   --vs-theme--box-border-bottom: none;
   --vs-theme--box-background: #f0f0f0;
-
-  counter-increment: box-theorem;
+  counter-increment: vs-theme-counter-box-theorem;
 }
 
 /* theorem スタイルの見出しの設定 */
 .box[data-box-type="theorem"]>:first-child:has(strong)::before {
-  content: var(--vs-theme--box-theorem-counter-content, "Theorem " counter(vs-counter-sec-h2) "." counter(box-theorem) " ");
+  content: var(--vs-theme--box-theorem-counter-content, "Theorem " counter(vs-counter-sec-h2) "." counter(vs-theme-counter-box-theorem) " ");
+
+  /* 「Theorem」の部分と見出しの間隔 */
   padding-right: 0.5em;
 }
 
-/*
- * proof スタイルの定義
- */
+/*----------------------------------------
+  proof スタイルの定義
+  ----------------------------------------*/
 .box[data-box-type="proof"] {
   --vs-theme--box-border-left-color: #b05252;
   --vs-theme--box-border-left: solid 0.8em;
@@ -402,14 +393,32 @@ section:has(> .cover:first-child) .author ul {
   --vs-theme--box-padding: 0.25em;
   --vs-theme--box-padding-left: 1em;
 
-  counter-increment: box-proof;
+  counter-increment: vs-theme-counter-box-proof;
 }
 
 /* proof スタイルの見出しの設定 */
 .box[data-box-type="proof"]>:first-child:has(strong)::before {
-  content: var(--vs-theme--box-proof-counter-content, "Proof " counter(vs-counter-sec-h2) "." counter(box-proof) " ");
+  content: var(--vs-theme--box-proof-counter-content, "Proof " counter(vs-counter-sec-h2) "." counter(vs-theme-counter-box-proof) " ");
   padding-right: 0.5em;
 }
+
+/*========================================
+  数式
+  ========================================*/
+.math:has(p > .math.display) {
+  position: relative;
+  counter-increment: vs-theme-counter-equation;
+}
+
+.math:has(p > .math.display):after {
+  /* .display.mathを含む.math要素に対して番号を振る */
+  content: var(--vs-theme--math-counter-content, "(" counter(vs-counter-sec-h2) "." counter(vs-theme-counter-equation) ")");
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 
 hr {
   break-before: page;

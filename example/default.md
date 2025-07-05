@@ -83,8 +83,33 @@ function main() {}
 
 ## 数式の挿入
 
+<div class="math">
+
+$$ax^2+bx+x=0$$
+
+</div>
+
+<div class="math">
+
+$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+
+</div>
 
 ## 図表の挿入・参照
+
+<div class="math">
+
+$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+
+</div>
+
+
+<div class="math">
+
+$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+
+</div>
+
 
 ---
 
@@ -293,3 +318,6 @@ This is {Ruby|ルビ}
 ### Level 2
 
 > ## Not Sectionize
+
+---
+---
