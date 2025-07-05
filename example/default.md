@@ -117,8 +117,30 @@ $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 
 ## 図表の挿入・参照
 
+### 図
 
----
+![Vivliostyle Logo](./assets/Logo%20(Mark%20+%20Type).png){#logo}
+
+`![Vivliostyle Logo](./assets/Logo%20(Mark%20+%20Type).png){#logo}` のように書くことで、画像に `id="logo"` が付与されます。
+この `id` を指定することで、画像を参照できます。 `[](#logo){.ref-theme-fig}` のように書くことで、[](#logo){.ref-theme-fig} のように画像を参照できます。
+
+### 表
+
+<figure id="tbl-resource">
+
+<figcaption>システムリソースの使用状況</figcaption>
+
+| 項目 | 値 | 説明 |
+|------|-----|------|
+| CPU使用率 | 45% | 現在のCPU使用率 |
+| メモリ使用量 | 2.3GB | 使用中のメモリ量 |
+| ディスク容量 | 128GB | 総ディスク容量 |
+| 空き容量 | 45GB | 利用可能な空き容量 |
+
+</figure>
+
+`<figure id="tbl-resource">` で囲んであります。この `id` を `[](#tbl-resource){.ref-theme-tbl}` のように指定することで、[](#tbl-resource){.ref-theme-tbl} のように表を参照できます。
+
 
 ## 箱
 
