@@ -1,7 +1,7 @@
 {
   "name": "@yas-ako/vivliostyle-theme-simple-report",
   "description": "シンプルなレポート用テーマ",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "https://github.com/yas-ako/",
   "main": "theme.css",
   "scripts": {
