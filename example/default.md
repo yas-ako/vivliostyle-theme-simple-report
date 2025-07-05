@@ -95,20 +95,27 @@ $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 
 </div>
 
+<div class="math" id="eq_example">
+
+$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+
+</div>
+
+## 数式の参照
+
+上の数式 [](#eq_example){.ref-math} は、html 要素に `eq_example` という id が付与されています。
+
+```markdown
+<div class="math" id="eq_example">
+
+$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+
+</div>
+```
+このidを指定することで、数式を参照できます。 `[](#eq_example){.ref-math}` のように書くことで、[](#eq_example){.ref-math} と表示できます。
+
+
 ## 図表の挿入・参照
-
-<div class="math">
-
-$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
-
-</div>
-
-
-<div class="math">
-
-$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
-
-</div>
 
 
 ---
@@ -141,11 +148,11 @@ $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 
 - 見出しが枠線の上にある枠を生成します。
 
-<div class="box" data-box-type="example">
+<div class="box" data-box-type="example" id="box_ex_ref_aaa">
 
 **微積分学の基本定理**
 
-微積分学の基本定理は、微分と積分の関係を示す定理です。
+微積分学の基本定理は、微分と積分の関係を示す定理です。この要素には `id="box_ex_ref_aaa"` が付与されています。
 
 </div>
 
@@ -174,16 +181,30 @@ $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 微積分学の基本定理は、微分と積分の関係を示す定理です。
 
 </div>
+
+- **参照方法**
+  - `[](#box_ex_ref_aaa){.ref-box}` のように書くことで、枠の参照ができます。
+  - [](#box_ex_ref_aaa){.ref-box data-box-type="example"}
+
 
 ### 定理
 
 - 背景が灰色の枠を生成します。
 
+
 <div class="box" data-box-type="theorem">
 
 **微積分学の基本定理**
 
 微積分学の基本定理は、微分と積分の関係を示す定理です。
+
+</div>
+
+<div class="box" data-box-type="theorem" id="box_ref_theorem_bbbb">
+
+**微積分学の基本定理**
+
+微積分学の基本定理は、微分と積分の関係を示す定理です。この要素には、`id="box_ref_theorem_bbbb"` が付与されています。
 
 </div>
 
@@ -195,13 +216,9 @@ $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 
 </div>
 
-<div class="box" data-box-type="theorem">
-
-**微積分学の基本定理**
-
-微積分学の基本定理は、微分と積分の関係を示す定理です。
-
-</div>
+- **参照方法**
+  - `[](#box_ref_theorem_bbbb){.ref-box}` のように書くことで、枠の参照ができます。
+  - [](#box_ref_theorem_bbbb){.ref-box data-box-type="theorem"}
 
 ### 証明
 
@@ -224,13 +241,17 @@ $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 
 </div>
 
-<div class="box" data-box-type="proof">
+<div class="box" data-box-type="proof" id="box_ref_proof_cccc">
 
 **微積分学の基本定理**
 
-微積分学の基本定理は、微分と積分の関係を示す定理です。
+微積分学の基本定理は、微分と積分の関係を示す定理です。この要素には、`id="box_ref_proof_cccc"` が付与されています。
 
 </div>
+
+- **参照方法**
+  - `[](#box_ref_proof_cccc){.ref-box}` のように書くことで、枠の参照ができます。
+  - [](#box_ref_proof_cccc){.ref-box data-box-type="proof"}
 
 ---
 

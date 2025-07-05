@@ -157,6 +157,11 @@ figure img {
   max-width: var(--vs-theme--figure-img-max-width);
 }
 
+/* コードブロック */
+pre {
+  page-break-inside: avoid;
+}
+
 @media screen {
   body {
     max-inline-size: 50rem;
@@ -337,6 +342,19 @@ section:has(> .cover:first-child) .author ul {
   vertical-align: var(--vs--bold-vertical-align);
 }
 
+
+
+/* 参照用のクラス */
+a.ref-box {
+  text-decoration: var(--vs-theme--box-ref-call-text-decoration, underline #bfbfbf);
+}
+
+a.ref-box::before {
+  content: var(--vs-theme--box-ref-call-content, "Box " target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-box) " ");
+}
+
+
+
 /*----------------------------------------
   example スタイルの定義
   ----------------------------------------*/
@@ -361,6 +379,10 @@ section:has(> .cover:first-child) .author ul {
   padding-right: var(--vs-theme--box-example-heading-padding-right, 0.5em);
 }
 
+a.ref-box[data-box-type="example"]::before {
+  content: var(--vs-theme--box-example-ref-call-content, "Ex " target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-box-example) " ");
+}
+
 /*----------------------------------------
   theorem スタイルの定義
   ----------------------------------------*/
@@ -379,6 +401,10 @@ section:has(> .cover:first-child) .author ul {
 
   /* 「Theorem」の部分と見出しの間隔 */
   padding-right: 0.5em;
+}
+
+a.ref-box[data-box-type="theorem"]::before {
+  content: var(--vs-theme--box-theorem-ref-call-content, "Theorem " target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-box-theorem) " ");
 }
 
 /*----------------------------------------
@@ -402,6 +428,10 @@ section:has(> .cover:first-child) .author ul {
   padding-right: 0.5em;
 }
 
+a.ref-box[data-box-type="proof"]::before {
+  content: var(--vs-theme--box-proof-ref-call-content, "Proof " target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-box-proof) " ");
+}
+
 /*========================================
   数式
   ========================================*/
@@ -417,6 +447,14 @@ section:has(> .cover:first-child) .author ul {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+
+/*----------------------------------------
+  数式の参照
+  ----------------------------------------*/
+
+a.ref-math::before {
+  content: "(" target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-equation) ")";
 }
 
 
