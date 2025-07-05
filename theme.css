@@ -4,9 +4,12 @@
 * Import extra modules
 * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#prism-code-highlighting
 */
-@import url(../@vivliostyle/theme-base/css/lib/prism/base.css);
-@import url(../@vivliostyle/theme-base/css/lib/prism/theme-prism.css);
+
+/* Vivliostyle Theme のテンプレートのままだとうまくいかない */
+@import url(../../@vivliostyle/theme-base/css/lib/prism/base.css);
+@import url(../../@vivliostyle/theme-base/css/lib/prism/theme-prism.css);
 @import 'prism-customize.css';
+
 
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700');
@@ -56,7 +59,7 @@
    * Customize styles about cross-reference of figure, table and citation
    * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#cross-reference
    */
-  --vs-crossref--counter-style: upper-roman;
+  --vs-crossref--counter-style: decimal;
   --vs-crossref--marker-cite-content: target-counter(attr(href), cite) '.';
 
   /*
@@ -123,8 +126,6 @@
   --vs--table-cell-padding-block: 0;
   --vs--table-cell-padding-inline: 0.5rem;
 
-  --vs-crossref--marker-fig-content: '図 ' counter(vs-counter-fig, var(--vs-crossref--counter-style));
-  --vs-crossref--marker-tbl-content: '表 ' counter(vs-counter-tbl, var(--vs-crossref--counter-style));
   --vs-crossref--marker-margin-inline: 0 1rem;
 
   --vs-section--marker-display: inline;
@@ -134,6 +135,11 @@
   --vs-section--h4-marker-content: counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4);
   --vs-section--h5-marker-content: counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4) '.' counter(vs-counter-sec-h5);
   --vs-section--h6-marker-content: counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4) '.' counter(vs-counter-sec-h5) '.' counter(vs-counter-sec-h6);
+}
+
+:root:lang(ja) {
+  --vs-crossref--marker-fig-content: '図 ' counter(vs-counter-fig, var(--vs-crossref--counter-style));
+  --vs-crossref--marker-tbl-content: '表 ' counter(vs-counter-tbl, var(--vs-crossref--counter-style));
 }
 
 /**
@@ -147,6 +153,14 @@
   --vs-theme--frame-margin-block: var(--vs-spacing-rlh);
   --vs-theme--frame-margin-inline: 0;
   --vs-theme--frame-padding: 1rem;
+}
+
+@media screen {
+  body {
+    max-inline-size: 50rem;
+    margin: 2rem auto 2rem;
+    padding: 0 var(--vs-spacing-inline-indent);
+  }
 }
 
 /*========================================
@@ -173,13 +187,11 @@ figure img {
   content: "表" target-counter(attr(href url), vs-counter-tbl);
 }
 
-@media screen {
-  body {
-    max-inline-size: 50rem;
-    margin: 2rem auto 2rem;
-    padding: 0 var(--vs-spacing-inline-indent);
-  }
+a.ref-theme-fig,
+a.ref-theme-tbl {
+  text-decoration: var(--vs-theme--box-ref-call-text-decoration, underline #bfbfbf);
 }
+
 
 /*========================================
   表紙ページ
