@@ -39,7 +39,7 @@ Vivliostyle Flavored Markdown（VFM）を使用することで、Markdown 形式
 ```markdown
 <div class="cover">
 
-# レポートのタイトル
+# Vivliostyle Simple Report Theme
 
 <div class="author">
 
