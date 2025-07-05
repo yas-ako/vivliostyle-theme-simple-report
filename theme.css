@@ -1,21 +1,56 @@
 @import url(../@vivliostyle/theme-base/theme-all.css);
 
 /*
- * Import extra modules
- * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#prism-code-highlighting
- */
+* Import extra modules
+* https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#prism-code-highlighting
+*/
 @import url(../@vivliostyle/theme-base/css/lib/prism/base.css);
-@import url(../@vivliostyle/theme-base/css/lib/prism/theme-okaidia.css);
+@import url(../@vivliostyle/theme-base/css/lib/prism/theme-prism.css);
+@import 'prism-customize.css';
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700');
 
 :root {
+  /*========================================
+    カスタマイズ
+    ========================================*/
+
+  /* 用紙・余白の設定 */
+  --vs-page--size: 210mm 297mm;
+  --vs-page--margin-top: 25mm;
+  --vs-page--margin-bottom: 25mm;
+  --vs-page--margin-inner: 20mm;
+  --vs-page--margin-outer: 20mm;
+  --vs-page--mbox-content-bottom-center: counter(page);
+  --vs-page--mbox-content-top-left: env(pub-title);
+
+  /* 本文のフォント */
+  --vs-font-size: 12px;
+  --vs-font-family: "Noto Serif JP";
+
+  /* 見出しのフォント */
+  --vs--heading-font-family: "Noto Sans JP";
+  --vs--heading-font-weight: 700;
+  --vs--heading-line-height: 1.3;
+
+  /* 太字 */
+  --vs--bold-font-family: "Noto Sans JP";
+  --vs-font-weight-bold: 500;
+
+  /* 等幅のフォント */
+  --vs--monospace-font-family: "Roboto Mono", "BIZ UDゴシック", monospace;
+
+
+  /*========================================
+    Academic Theme
+    https://github.com/vivliostyle/themes/tree/main/packages/@vivliostyle/theme-academic
+    ========================================*/
+
   /*
    * Basic customization of Vivliostyle Theme
    * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#basic
    */
-  --vs-font-family: 'Times New Roman', serif;
-  --vs-font-size: 12px;
-  --vs--heading-line-height: 1.3;
-  --vs--h1-font-size: 2.5em;
 
   /*
    * Customize styles about cross-reference of figure, table and citation
@@ -35,15 +70,8 @@
    * Customize styles about footnotes
    * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#footnotes
    */
-   --vs-footnote--call-content: '[' counter(footnote) ']';
-   --vs-footnote--area-before-margin-inline: 0 80%;
-
-  /*
-   * Customize styles about paged media
-   * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#page-layout
-   */
-  --vs-page--mbox-content-bottom-center: counter(page);
-  --vs-page--mbox-content-top-left: env(doc-title);
+  --vs-footnote--call-content: '[' counter(footnote) ']';
+  --vs-footnote--area-before-margin-inline: 0 80%;
 
   /*
    * Customize styles about heading counters and section reference
@@ -57,6 +85,380 @@
    * https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-base#table-of-contents
    */
   --vs-toc--marker-margin-inline: 8rem;
+
+
+  /*========================================
+    バグ修正
+    参照 https://github.com/vivliostyle/themes/issues/138
+    ========================================*/
+
+  --vs-section--root-counter-reset: vs-counter-sections var(--vs-section--root-counter-sections, ) vs-counter-sec-h1 var(--vs-section--root-counter-sec-h1, );
+
+  --vs-font-size: 10pt;
+  --vs-line-height: 1.8;
+  --vs-text-align: justify;
+  --vs-widows-orphans: 2;
+
+
+  --vs--heading-margin-block: 0;
+
+  --vs--h1-font-size: 2em;
+  --vs--h1-margin-block: 0.8rem 0.4rem;
+  --vs--h1-text-align: center;
+  --vs--h2-font-size: 1.4em;
+  --vs--h2-margin-block: 0.8rem 0.4rem;
+  --vs--h3-font-size: 1.2em;
+  --vs--h3-margin-block: 0.4rem 0.2rem;
+  --vs--h4-font-size: 1em;
+  --vs--h4-margin-block: 0.4rem 0.2rem;
+  --vs--p-margin-block: 0;
+  --vs--p-margin-block: 0;
+  --vs--p-text-indent: 1em;
+  --vs--figcaption-margin-block: 0;
+  --vs--table-border-width-cell: 0;
+  --vs--table-border-width-inline-start: 0;
+  --vs--table-border-width-inline-end: 0;
+  --vs--table-border-width-thead-inner: var(--vs--table-border-width);
+  --vs--table-border-width-tfoot-inner: var(--vs--table-border-width);
+  --vs--table-cell-padding-block: 0;
+  --vs--table-cell-padding-inline: 0.5rem;
+
+  --vs-crossref--marker-fig-content: '図 ' counter(vs-counter-fig, var(--vs-crossref--counter-style));
+  --vs-crossref--marker-tbl-content: '表 ' counter(vs-counter-tbl, var(--vs-crossref--counter-style));
+  --vs-crossref--marker-margin-inline: 0 1rem;
+
+  --vs-section--marker-display: inline;
+  --vs-section--h1-marker-display: none;
+  --vs-section--h2-marker-content: counter(vs-counter-sec-h2);
+  --vs-section--h3-marker-content: counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3);
+  --vs-section--h4-marker-content: counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4);
+  --vs-section--h5-marker-content: counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4) '.' counter(vs-counter-sec-h5);
+  --vs-section--h6-marker-content: counter(vs-counter-sec-h2) '.' counter(vs-counter-sec-h3) '.' counter(vs-counter-sec-h4) '.' counter(vs-counter-sec-h5) '.' counter(vs-counter-sec-h6);
 }
 
-/* Start writing... 🖋 */
+/**
+ * Theme variables
+ */
+:root {
+  --vs-theme--figure-img-max-height: 8cm;
+  --vs-theme--figure-img-max-width: 10cm;
+  --vs-theme--frame-border: var(--vs-border-width) solid;
+  --vs-theme--frame-box-decoration-break: slice;
+  --vs-theme--frame-margin-block: var(--vs-spacing-rlh);
+  --vs-theme--frame-margin-inline: 0;
+  --vs-theme--frame-padding: 1rem;
+}
+
+figure img {
+  max-height: var(--vs-theme--figure-img-max-height);
+  max-width: var(--vs-theme--figure-img-max-width);
+}
+
+/* コードブロック */
+pre {
+  page-break-inside: avoid;
+}
+
+@media screen {
+  body {
+    max-inline-size: 50rem;
+    margin: 2rem auto 2rem;
+    padding: 0 var(--vs-spacing-inline-indent);
+  }
+}
+
+/*========================================
+  表紙ページ
+  ========================================*/
+
+/* Author */
+.author ul {
+  list-style: none;
+  text-align: right;
+  margin-block: var(--vs-spacing-rlh);
+  padding: 0;
+}
+
+/* Cover */
+.cover,
+section:has(> .cover:first-child) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cover h1,
+section:has(> .cover:first-child) h1 {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cover .author ul,
+section:has(> .cover:first-child) .author ul {
+  text-align: center;
+}
+
+@page cover {
+
+  .cover:not(h1),
+  section:has(> .cover:first-child) {
+    height: 100vh;
+  }
+}
+
+/* ----------
+ * Frame
+ * ----------
+ */
+
+/* .frame {
+  --vs--blockquote-margin-block: 0;
+  --vs--blockquote-margin-inline: 0;
+  --vs--figure-margin-block: 0;
+  --vs--figure-margin-inline: 0;
+  --vs--pre-margin-block: 0;
+  --vs--pre-margin-inline: 0;
+  border: var(--vs-theme--frame-border);
+  box-decoration-break: var(--vs-theme--frame-box-decoration-break);
+  margin-block: var(--vs-theme--frame-margin-block);
+  margin-inline: var(--vs-theme--frame-margin-inline);
+  padding: var(--vs-theme--frame-padding);
+} */
+
+
+/*========================================
+  注釈
+  ========================================*/
+
+
+/* 脚注の自動生成された脚注表記を非表示にする */
+/* 脚注番号は、脚注の内容の前に付与される。 */
+@media print {
+
+  /* URL に対して自動生成された脚注表記を非表示にする */
+  :not(.footnote)>a[href^="http"]::before {
+    display: none;
+  }
+
+  :not(.footnote)>a[href^="http"]::after {
+    /* URL の後ろに付与された脚注番号を非表示にする */
+    display: none;
+  }
+}
+
+
+/*========================================
+  テーマで定義したスタイル
+  ========================================*/
+.box {
+  position: relative;
+  --vs--p-text-indent: 0;
+  --vs--blockquote-margin-block: 0;
+  --vs--blockquote-margin-inline: 0;
+  --vs--figure-margin-block: 0;
+  --vs--figure-margin-inline: 0;
+  --vs--pre-margin-block: 0;
+  --vs--pre-margin-inline: 0;
+  /* --vs--lists-margin-block: 0; */
+
+
+  /* Subsection Name */
+  /* border */
+  /* 四辺それぞれにCSS変数を定義 */
+  /* 辺ごとに異なるスタイルを設定可能 */
+  /* --vs-theme--box-border を用いて一括で定義することもできる */
+  border-top: var(--vs-theme--box-border-top, var(--vs-theme--box-border, solid 1px));
+  border-right: var(--vs-theme--box-border-right, var(--vs-theme--box-border, solid 1px));
+  border-bottom: var(--vs-theme--box-border-bottom, var(--vs-theme--box-border, solid 1px));
+  border-left: var(--vs-theme--box-border-left, var(--vs-theme--box-border, solid 1px));
+  /* 以下の記法だとうまくいかないため、枠線の色は別で定義 */
+  /* border-top: var(--vs-theme--box-border-top, var(--vs-theme--box-border, solid 1px #000)); */
+
+
+  /* border-color */
+  border-top-color: var(--vs-theme--box-border-top-color, var(--vs-theme--box-border-color, #000));
+  border-right-color: var(--vs-theme--box-border-right-color, var(--vs-theme--box-border-color, #000));
+  border-bottom-color: var(--vs-theme--box-border-bottom-color, var(--vs-theme--box-border-color, #000));
+  border-left-color: var(--vs-theme--box-border-left-color, var(--vs-theme--box-border-color, #000));
+
+  /* border-radius */
+  border-top-left-radius: var(--vs-theme--box-border-top-left-radius, var(--vs-theme--box-border-radius, 0));
+  border-top-right-radius: var(--vs-theme--box-border-top-right-radius, var(--vs-theme--box-border-radius, 0));
+  border-bottom-right-radius: var(--vs-theme--box-border-bottom-right-radius, var(--vs-theme--box-border-radius, 0));
+  border-bottom-left-radius: var(--vs-theme--box-border-bottom-left-radius, var(--vs-theme--box-border-radius, 0));
+
+  /* padding */
+  padding-top: var(--vs-theme--box-padding-top, var(--vs-theme--box-padding, 1em));
+  padding-right: var(--vs-theme--box-padding-right, var(--vs-theme--box-padding, 1em));
+  padding-bottom: var(--vs-theme--box-padding-bottom, var(--vs-theme--box-padding, 1em));
+  padding-left: var(--vs-theme--box-padding-left, var(--vs-theme--box-padding, 1em));
+
+  /* margin */
+  margin-top: var(--vs-theme--box-margin-top, var(--vs-theme--box-margin-block, var(--vs-theme--box-margin, 0)));
+  margin-bottom: var(--vs-theme--box-margin-bottom, var(--vs-theme--box-margin-block, var(--vs-theme--box-margin, 0)));
+  margin-right: var(--vs-theme--box-margin-right, var(--vs-theme--box-margin-inline, var(--vs-theme--box-margin, 0)));
+  margin-left: var(--vs-theme--box-margin-left, var(--vs-theme--box-margin-inline, var(--vs-theme--box-margin, 2em)));
+
+  /* 背景の色 */
+  background-color: var(--vs-theme--box-background, #fff);
+
+  /* ページをまたいで表示される場合に、箱を分割する設定 */
+  page-break-inside: var(--vs-theme--box-page-break-inside, avoid);
+
+
+  /* box 要素の先頭にある `**~**` を 見出しにする */
+  &>p:first-child:has(strong) {
+    display: block;
+    margin-top: 0;
+    font-weight: bold;
+  }
+
+  /*----------------------------------------
+    CSS変数の値を設定
+    別のCSSファイルで上書き可能
+    ----------------------------------------*/
+
+  /* margin */
+  --vs-theme--box-margin-block: var(--vs-spacing-rlh);
+}
+
+
+/* 見出しに付与されるカウンタのスタイル */
+
+.box>:first-child:has(strong)::before {
+  font-family: var(--vs-theme--box-heading-font-family, var(--vs--bold-font-family, var(--vs--heading-font-family)));
+  font-feature-settings: var(--vs-theme--box-heading-font-feature-settings, var(--vs--bold-font-feature-settings, var(--vs--heading-font-feature-settings)));
+  font-kerning: var(--vs-theme--box-heading-font-kerning, var(--vs--bold-font-kerning, var(--vs--heading-font-kerning)));
+  font-size: var(--vs-theme--box-heading-font-size, var(--vs--bold-font-size));
+  font-stretch: var(--vs-theme--box-heading-font-stretch, var(--vs--bold-font-stretch, var(--vs--heading-font-stretch)));
+  font-variant: var(--vs-theme--box-heading-font-variant, var(--vs--bold-font-variant, var(--vs--heading-font-variant)));
+  font-variation-settings: var(--vs-theme--box-heading-font-variation-settings, var(--vs--bold-font-variation-settings, var(--vs--heading-font-variation-settings)));
+  font-weight: var(--vs--bold-font-weight);
+  vertical-align: var(--vs--bold-vertical-align);
+}
+
+
+
+/* 参照用のクラス */
+a.ref-box {
+  text-decoration: var(--vs-theme--box-ref-call-text-decoration, underline #bfbfbf);
+}
+
+a.ref-box::before {
+  content: var(--vs-theme--box-ref-call-content, "Box " target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-box) " ");
+}
+
+
+
+/*----------------------------------------
+  example スタイルの定義
+  ----------------------------------------*/
+.box[data-box-type="example"] {
+  counter-increment: vs-theme-counter-box-example;
+}
+
+/* 見出しが枠線の上に乗るように位置を調整 */
+.box[data-box-type="example"]>p:first-child:has(strong) {
+  position: absolute;
+  top: -1em;
+  left: 1em;
+  padding: 0em 0.7em;
+  background-color: #fff;
+}
+
+/* example スタイルの見出しの設定 */
+.box[data-box-type="example"]>:first-child:has(strong)::before {
+  content: var(--vs-theme--box-example-counter-content, "Ex " counter(vs-counter-sec-h2) "." counter(vs-theme-counter-box-example) " ");
+
+  /* 「Ex 1.1」の部分と実際の見出しの間隔 */
+  padding-right: var(--vs-theme--box-example-heading-padding-right, 0.5em);
+}
+
+a.ref-box[data-box-type="example"]::before {
+  content: var(--vs-theme--box-example-ref-call-content, "Ex " target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-box-example) " ");
+}
+
+/*----------------------------------------
+  theorem スタイルの定義
+  ----------------------------------------*/
+.box[data-box-type="theorem"] {
+  --vs-theme--box-border-left: none;
+  --vs-theme--box-border-top: none;
+  --vs-theme--box-border-right: none;
+  --vs-theme--box-border-bottom: none;
+  --vs-theme--box-background: #f0f0f0;
+  counter-increment: vs-theme-counter-box-theorem;
+}
+
+/* theorem スタイルの見出しの設定 */
+.box[data-box-type="theorem"]>:first-child:has(strong)::before {
+  content: var(--vs-theme--box-theorem-counter-content, "Theorem " counter(vs-counter-sec-h2) "." counter(vs-theme-counter-box-theorem) " ");
+
+  /* 「Theorem」の部分と見出しの間隔 */
+  padding-right: 0.5em;
+}
+
+a.ref-box[data-box-type="theorem"]::before {
+  content: var(--vs-theme--box-theorem-ref-call-content, "Theorem " target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-box-theorem) " ");
+}
+
+/*----------------------------------------
+  proof スタイルの定義
+  ----------------------------------------*/
+.box[data-box-type="proof"] {
+  --vs-theme--box-border-left-color: #b05252;
+  --vs-theme--box-border-left: solid 0.8em;
+  --vs-theme--box-border-top: none;
+  --vs-theme--box-border-right: none;
+  --vs-theme--box-border-bottom: none;
+  --vs-theme--box-padding: 0.25em;
+  --vs-theme--box-padding-left: 1em;
+
+  counter-increment: vs-theme-counter-box-proof;
+}
+
+/* proof スタイルの見出しの設定 */
+.box[data-box-type="proof"]>:first-child:has(strong)::before {
+  content: var(--vs-theme--box-proof-counter-content, "Proof " counter(vs-counter-sec-h2) "." counter(vs-theme-counter-box-proof) " ");
+  padding-right: 0.5em;
+}
+
+a.ref-box[data-box-type="proof"]::before {
+  content: var(--vs-theme--box-proof-ref-call-content, "Proof " target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-box-proof) " ");
+}
+
+/*========================================
+  数式
+  ========================================*/
+.math:has(p > .math.display) {
+  position: relative;
+  counter-increment: vs-theme-counter-equation;
+}
+
+.math:has(p > .math.display):after {
+  /* .display.mathを含む.math要素に対して番号を振る */
+  content: var(--vs-theme--math-counter-content, "(" counter(vs-counter-sec-h2) "." counter(vs-theme-counter-equation) ")");
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/*----------------------------------------
+  数式の参照
+  ----------------------------------------*/
+
+a.ref-math::before {
+  content: "(" target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-equation) ")";
+}
+
+
+hr {
+  break-before: page;
+  visibility: hidden;
+  margin: 0px;
+  padding: 0px;
+  height: 1px;
+}

@@ -1,7 +1,7 @@
 {
   "name": "vivliostyle-theme-simple-report",
   "description": "",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "author": "https://github.com/yas-ako/",
   "main": "theme.css",
   "scripts": {
