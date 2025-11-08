@@ -12,7 +12,7 @@
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&family=Zen+Maru+Gothic:wght@300;400;500;700;900&family=Zen+Old+Mincho:wght@400;500;600;700;900&display=swap');
 
 :root {
   /*========================================
@@ -21,19 +21,20 @@
 
   /* 用紙・余白の設定 */
   --vs-page--size: 210mm 297mm;
-  --vs-page--margin-top: 25mm;
+  --vs-page--margin-top: 30mm;
   --vs-page--margin-bottom: 25mm;
-  --vs-page--margin-inner: 20mm;
-  --vs-page--margin-outer: 20mm;
+  --vs-page--margin-inner: 25mm;
+  --vs-page--margin-outer: 25mm;
   --vs-page--mbox-content-bottom-center: counter(page);
-  --vs-page--mbox-content-top-left: env(pub-title);
+  --vs-page--mbox-content-top-left: none;
 
   /* 本文のフォント */
   --vs-font-size: 12px;
   --vs-font-family: "Noto Serif JP";
+  --vs--html-font-size: 12px;
 
   /* 見出しのフォント */
-  --vs--heading-font-family: "Noto Sans JP";
+  --vs--heading-font-family: 'Zen Kaku Gothic New', sans-serif;
   --vs--heading-font-weight: 700;
   --vs--heading-line-height: 1.3;
 
@@ -75,6 +76,9 @@
    */
   --vs-footnote--call-content: '[' counter(footnote) ']';
   --vs-footnote--area-before-margin-inline: 0 80%;
+  --vs-footnote--area-before-margin-block: 0.5rem 0.1rem;
+  --vs-footnote--area-margin-block: 0.5rem 0;
+  --vs-footnote--font-size: 10.5px;
 
   /*
    * Customize styles about heading counters and section reference
@@ -105,18 +109,21 @@
 
   --vs--heading-margin-block: 0;
 
-  --vs--h1-font-size: 2em;
-  --vs--h1-margin-block: 0.8rem 0.4rem;
+  --vs--h1-font-size: 2.4rem;
+  --vs--h1-margin-block: 0;
   --vs--h1-text-align: center;
-  --vs--h2-font-size: 1.4em;
-  --vs--h2-margin-block: 0.8rem 0.4rem;
-  --vs--h3-font-size: 1.2em;
-  --vs--h3-margin-block: 0.4rem 0.2rem;
-  --vs--h4-font-size: 1em;
-  --vs--h4-margin-block: 0.4rem 0.2rem;
-  --vs--p-margin-block: 0;
-  --vs--p-margin-block: 0;
+  --vs--h2-font-size: 1.5rem;
+  --vs--h2-margin-block: 1em 0;
+  --vs--h3-font-size: 1.3rem;
+  --vs--h3-margin-block: 1em 0;
+  --vs--h4-font-size: 1.1rem;
+  --vs--h4-margin-block: 1em 0;
+  --vs--h5-font-size: 1.1rem;
+  --vs--h5-margin-block: 1em 0;
+  --vs--p-margin-block: 0.5rem;
+  --vs--p-margin-block: 0.5rem;
   --vs--p-text-indent: 1em;
+  --vs--pre-margin-block: 1.5rem;
   --vs--figcaption-margin-block: 0;
   --vs--table-border-width-cell: 0;
   --vs--table-border-width-inline-start: 0;
@@ -153,6 +160,20 @@
   --vs-theme--frame-margin-block: var(--vs-spacing-rlh);
   --vs-theme--frame-margin-inline: 0;
   --vs-theme--frame-padding: 1rem;
+
+  --vs-theme--box-heading-position: static;
+  --vs-theme--box-heading-top: -1rem;
+  --vs-theme--box-heading-left: 1em;
+  --vs-theme--box-heading-padding: 0em 0em;
+  --vs-theme--box-heading-bg: transparent;
+
+  /* Exampleのラベル表記 */
+  --vs-theme--box-example-counter-content: "Ex. " counter(vs-counter-sec-h2) "." counter(vs-theme-counter-box-example) " ";
+  --vs-theme--box-example-ref-call-content: "Ex. " target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-box-example) " ";
+  --vs-theme--box-example-heading-padding-right: 0.5em;
+
+  /* Theoremのラベル表記 */
+  --vs-theme--box-theorem-counter-content: none;
 }
 
 @media screen {
@@ -306,21 +327,13 @@ section:has(> .cover:first-child) .author ul {
   margin-top: var(--vs-theme--box-margin-top, var(--vs-theme--box-margin-block, var(--vs-theme--box-margin, 0)));
   margin-bottom: var(--vs-theme--box-margin-bottom, var(--vs-theme--box-margin-block, var(--vs-theme--box-margin, 0)));
   margin-right: var(--vs-theme--box-margin-right, var(--vs-theme--box-margin-inline, var(--vs-theme--box-margin, 0)));
-  margin-left: var(--vs-theme--box-margin-left, var(--vs-theme--box-margin-inline, var(--vs-theme--box-margin, 2em)));
+  margin-left: var(--vs-theme--box-margin-left, var(--vs-theme--box-margin-inline, var(--vs-theme--box-margin, 0)));
 
   /* 背景の色 */
   background-color: var(--vs-theme--box-background, #fff);
 
   /* ページをまたいで表示される場合に、箱を分割する設定 */
   page-break-inside: var(--vs-theme--box-page-break-inside, avoid);
-
-
-  /* box 要素の先頭にある `**~**` を 見出しにする */
-  &>p:first-child:has(strong) {
-    display: block;
-    margin-top: 0;
-    font-weight: bold;
-  }
 
   /*----------------------------------------
     CSS変数の値を設定
@@ -329,6 +342,20 @@ section:has(> .cover:first-child) .author ul {
 
   /* margin */
   --vs-theme--box-margin-block: var(--vs-spacing-rlh);
+}
+
+/* box 要素の先頭にある `**~**` を 見出しにする */
+.box>p:first-child:has(strong) {
+  position: var(--vs-theme--box-heading-position, static);
+  top: var(--vs-theme--box-heading-top, -1rem);
+  left: var(--vs-theme--box-heading-left, 1em);
+  --vs-theme--box-heading-padding: if(style(--vs-theme--box-heading-position: static): 0em 0.7em, 0em 0em);
+  padding: var(--vs-theme--box-heading-padding, 0em 0.7em);
+  --vs-theme--box-heading-bg: if(style(--vs-theme--box-heading-position: absolute): #fff);
+  background-color: var(--vs-theme--box-heading-bg, transparent);
+  display: block;
+  margin: 0;
+  font-weight: bold;
 }
 
 
@@ -363,28 +390,23 @@ a.ref-box::before {
   example スタイルの定義
   ----------------------------------------*/
 .box[data-box-type="example"] {
+  /* 浮きタイトルを有効化 */
+  --vs-theme--box-heading-position: absolute;
+  /* --vs-theme--box-heading-bg: #fff; */
+  /* --vs-theme--box-margin-inline: 2em; */
   counter-increment: vs-theme-counter-box-example;
-}
-
-/* 見出しが枠線の上に乗るように位置を調整 */
-.box[data-box-type="example"]>p:first-child:has(strong) {
-  position: absolute;
-  top: -1em;
-  left: 1em;
-  padding: 0em 0.7em;
-  background-color: #fff;
 }
 
 /* example スタイルの見出しの設定 */
 .box[data-box-type="example"]>:first-child:has(strong)::before {
-  content: var(--vs-theme--box-example-counter-content, "Ex " counter(vs-counter-sec-h2) "." counter(vs-theme-counter-box-example) " ");
+  content: var(--vs-theme--box-example-counter-content, "Ex. " counter(vs-counter-sec-h2) "." counter(vs-theme-counter-box-example) " ");
 
-  /* 「Ex 1.1」の部分と実際の見出しの間隔 */
+  /* 「Ex. 1.1」の部分と実際の見出しの間隔 */
   padding-right: var(--vs-theme--box-example-heading-padding-right, 0.5em);
 }
 
 a.ref-box[data-box-type="example"]::before {
-  content: var(--vs-theme--box-example-ref-call-content, "Ex " target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-box-example) " ");
+  content: var(--vs-theme--box-example-ref-call-content, "Ex. " target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-box-example) " ");
 }
 
 /*----------------------------------------
@@ -415,13 +437,14 @@ a.ref-box[data-box-type="theorem"]::before {
   proof スタイルの定義
   ----------------------------------------*/
 .box[data-box-type="proof"] {
-  --vs-theme--box-border-left-color: #b05252;
+  --vs-theme--box-border-left-color: #9f9f9f;
   --vs-theme--box-border-left: solid 0.8em;
   --vs-theme--box-border-top: none;
   --vs-theme--box-border-right: none;
   --vs-theme--box-border-bottom: none;
   --vs-theme--box-padding: 0.25em;
-  --vs-theme--box-padding-left: 1em;
+  --vs-theme--box-padding-left: 0.75em;
+  --vs-theme--box-margin-inline: 0.5em;
 
   counter-increment: vs-theme-counter-box-proof;
 }
@@ -458,7 +481,7 @@ a.ref-box[data-box-type="proof"]::before {
   ----------------------------------------*/
 
 a.ref-math::before {
-  content: "(" target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-equation) ")";
+  content: var(--vs-theme--math-ref-call-content, "(" target-counter(attr(href url), vs-counter-sec-h2) "." target-counter(attr(href url), vs-theme-counter-equation) ")");
 }
 
 /*========================================

@@ -1,7 +1,7 @@
 {
   "name": "@yas-ako/vivliostyle-theme-simple-report",
   "description": "シンプルなレポート用テーマ",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "https://github.com/yas-ako/",
   "main": "theme.css",
   "scripts": {
@@ -13,7 +13,7 @@
     "@vivliostyle/theme-base": "latest"
   },
   "devDependencies": {
-    "@vivliostyle/cli": "^9.3.1",
+    "@vivliostyle/cli": "^9.7.2",
     "vivliostyle-theme-scripts": "^0.3.6"
   },
   "peerDependencies": {

@@ -1,0 +1,10 @@
+{
+  "cssVariables.lookupFiles": [
+    ".vivliostyle/themes/node_modules/@vivliostyle/theme-base/css/partial/**",
+    ".vivliostyle/themes/node_modules/@vivliostyle/theme-base/css/common/**",
+    "**/*.css",
+    "**/*.scss",
+    "**/*.sass",
+    "**/*.less"
+  ]
+}

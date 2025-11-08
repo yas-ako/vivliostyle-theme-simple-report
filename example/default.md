@@ -154,7 +154,7 @@ $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 - 要素内の先頭に`**微積分学の基本定理**`などと書くと、その行が見出しとなり、自動で番号が挿入されます。
 
 ```markdown
-<div class="box" data-box-type="example">
+<div class="box">
 
 **微積分学の基本定理**
 
@@ -163,12 +163,38 @@ $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 </div>
 ```
 
----
+<div class="box">
+
+**微積分学の基本定理**
+
+微積分学の基本定理は、微分と積分の関係を示す定理です。
+
+</div>
+
+次のように、`style` に `--vs-theme--box-heading-position: absolute;` を指定すると、見出しを箱の枠線上に表示できます。
+
+```markdown
+<div class="box" style="--vs-theme--box-heading-position: absolute;">
+
+**微積分学の基本定理**
+
+微積分学の基本定理は、微分と積分の関係を示す定理です。
+
+</div>
+```
+
+<div class="box" style="--vs-theme--box-heading-position: absolute;">
+
+**微積分学の基本定理**
+
+微積分学の基本定理は、微分と積分の関係を示す定理です。
+
+</div>
 
 
 ### 例題
 
-- 見出しが枠線の上にある枠を生成します。
+- 見出しに Ex. が付きます。
 
 <div class="box" data-box-type="example" id="box_ex_ref_aaa">
 
